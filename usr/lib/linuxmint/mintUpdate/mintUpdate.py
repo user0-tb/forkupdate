@@ -1195,9 +1195,9 @@ class RefreshThread(threading.Thread):
         infobar_message_type = Gtk.MessageType.WARNING
         infobar_callback = self._on_infobar_mintsources_response
         try:
-            if os.path.exists("/usr/bin/mintsources") and os.path.exists("/etc/apt/sources.list.d/official-package-repositories.list"):
+            if os.path.exists("/usr/bin/mintsources") and os.path.exists("/etc/apt/sources.list"):
                 mirror_url = None
-                with open("/etc/apt/sources.list.d/official-package-repositories.list", 'r') as sources_file:
+                with open("/etc/apt/sources.list", 'r') as sources_file:
                     for line in sources_file:
                         line = line.strip()
                         if line.startswith("deb ") and "main upstream import" in line:
